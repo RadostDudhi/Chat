@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+
+.message{
+    $self: &;
+
+    display: flex;
+    flex-direction: row;
+    max-width: 560px;
+    margin-bottom: 15px;
+
+    &__avatar{
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        margin: 0 15px 0 0;
+    }
+
+    &__bubble{
+        display: table;
+        background-color: $blue;
+        color: #fff;
+        padding: 15px 15px;
+        border-radius: 25px;
+        margin-bottom: 7px;
+    }
+
+    &__text{
+        line-height: 20px;
+    }
+
+    &__date{
+        padding-left: 15px;
+        font-size: 12px;
+        opacity: 0.4;
+    }
+
+    &--isme{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: auto;
+
+        #{$self}__bubble{
+            background-color: #f7f7f7;
+            color: $black;
+        }
+
+        #{$self}__avatar{
+            display: none;
+        }
+
+        #{$self}__content{
+            text-align: right;
+        }
+    }
+    
+}
