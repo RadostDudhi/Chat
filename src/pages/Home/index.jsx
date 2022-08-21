@@ -4,6 +4,7 @@ import React from "react";
  //   Route
   //} from 'react-router-dom';
 import { Message } from "../../components";
+import { DialogItem } from "../../components";
 
 
 import './Home.scss';
@@ -11,7 +12,29 @@ import './Home.scss';
 const Home = () => ( 
     
     <section className="home">
-        <Message 
+        <div className="dialogs">
+            <DialogItem user={{
+                fullname: 'Jorny',
+                isOnline: true
+            }}
+            unreaded={5}
+            />
+        </div>
+        
+        {/*<Dialogs item={[
+            {
+                user:{
+                    fullname: 'Jorny',
+                    avatar: null
+                },
+                messagt: {
+                    text: 'Didn\'t I tell you that the cop had to go hunt up a janitor or something to get the door open.',
+                    created_at: new Date()
+                }
+               
+            }
+        ]} />*/}
+        {/*<Message 
         avatar="https://sun6-23.userapi.com/s/v1/if1/SrG0dzIWKMmFcc_b2xw5S9JsKqz6mnt9_FuHwma0bOt2Qv9uvOhT6NrlGmLDlxvkqeKTie8D.jpg?size=100x100&quality=96&crop=321,1,1916,1916&ava=1" 
         text="Quickly come to the meeting room 1B, we have a big server issue" 
         date="Sat Aug 20 2022 19:37:12"  
@@ -21,7 +44,7 @@ const Home = () => (
         text="I'm having breakfast right now, can't you wait for 10 minutes?" 
         date="Sat Aug 20 2022 19:45:10" 
         isMe={true}
-        />
+/>*/}
     </section>
     
 );

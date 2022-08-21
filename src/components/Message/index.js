@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from "classnames";
-import format from 'date-fns/format';
+
+import { Time } from '../../components';
 
 import './Message.scss';
 
@@ -16,7 +17,7 @@ const Message = ({avatar, user, text, date, isMe}) => (
                 <p className="message__text">{text}</p>
             </div>
             <span className="message__date">
-                {format(new Date(date), 'Pp')}
+                <Time date={date} />
             </span>
         </div>
     </div>
@@ -31,7 +32,8 @@ Message.propTypes = {
     avatar: PropTypes.string,
     text: PropTypes.string,
     date: PropTypes.string,
-    user: PropTypes.object
+    user: PropTypes.object,
+
 };
 
 export default Message;
