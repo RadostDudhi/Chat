@@ -2,6 +2,8 @@
 @import '~reset-css';
 @import './variables';
 
+@import './layouts/chat.scss';
+
 html, 
 body, 
 #root{
@@ -11,6 +13,12 @@ body,
     font-size: 14px;
     line-height: 17px;
 }
+
+body{
+    background-color: #F4F7FD;
+}
+
+
 
 .ant-input{
     width: 100%;

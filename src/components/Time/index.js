@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 
 const Time = ({ date }) => (
     <Fragment>
-        {format(new Date(date), 'PP')}
+        {format(new Date(date), 'Pp')}
     </Fragment>
 )
 

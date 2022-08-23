@@ -1,37 +1,37 @@
 import React from "react";
 import classNames from "classnames";
+import format from 'date-fns/format';
 
-import { Time } from '../../components';
-
-import './DialogItem.scss';
-
-const getAvatar = avatar => {
-    if (avatar) {
-        return <img src="https://sun6-23.userapi.com/s/v1/if1/SrG0dzIWKMmFcc_b2xw5S9JsKqz6mnt9_FuHwma0bOt2Qv9uvOhT6NrlGmLDlxvkqeKTie8D.jpg?size=100x100&quality=96&crop=321,1,1916,1916&ava=1" />;
-    } else {
-        //makeAvatar
+const getMessageTime = created_at => {
+    if (true) {
+        return format(new Date(created_at), 'PP')
     }
 };
 
-const DialogItem = ({ user, message, unreaded }) => (
+// const getAvatar = avatar => {
+//     if (avatar) {
+//         return {/*<img src={user.avatar} />;*/}
+//     } else {
+//         //makeAvatar
+//     }
+// };
+
+const DialogItem = ({ user, message, unreaded, isMe }) => (
     <div className={classNames("dialogs__item", {
         "dialogs__item--online": user.isOnline})}>
         <div className="dialogs__item-avatar">
-            {/*<img src={user.avatar} alt={`Avatar ${user.fullname}`} /> */}
-            {getAvatar(
-                "https://sun6-23.userapi.com/s/v1/if1/SrG0dzIWKMmFcc_b2xw5S9JsKqz6mnt9_FuHwma0bOt2Qv9uvOhT6NrlGmLDlxvkqeKTie8D.jpg?size=100x100&quality=96&crop=321,1,1916,1916&ava=1"
-            )}
-            
+            <img src={user.avatar} alt={`Avatar ${user.fullname}`} />            
         </div>
         <div className="dialogs__item-info">
             <div className="dialogs__item-info-top">
-                <b>Jorny</b>
+                <b>{user.fullname}</b>
                 <span>
-                    <Time date={new Date()} />
+                    {getMessageTime(message.created_at)}
                 </span>
             </div>
             <div className="dialogs__item-info-buttom">
-                <p>Police are required to read your Miranda Rights after an arrest and before questioning. If they fail to “read you your rights,” it may make some or all of the following questioning inadmissible in court and affect the prosecution's ability to convict you for a crime.</p>
+                <p>{message.text}</p>
+                {/*{isMe && }*/}
             </div>
             {unreaded>0 && (
             <div className="dialogs__item-unread-count">
